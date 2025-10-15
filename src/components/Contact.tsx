@@ -1,46 +1,72 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Clock, MapPin, Shield, Award } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    loanType: "",
-    amount: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    emailjs.init("9qmVhoJWQH-lebpC7");
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.phone || !formData.loanType) {
+    if (!formData.name || !formData.email || !formData.phone) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in all required fields correctly.",
         variant: "destructive"
       });
       return;
     }
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll reach out soon.",
-    });
+    setIsLoading(true);
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      loanType: "",
-      amount: "",
-      message: ""
-    });
+    try {
+      await emailjs.send(
+        "service_tyoph0j",
+        "template_i7q8k2k",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }
+      );
+
+      toast({
+        title: "Success!",
+        description: "Message sent successfully! We'll get back to you soon.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -153,6 +179,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Your name"
+                        maxLength={100}
                         required
                       />
                     </div>
@@ -165,33 +192,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="your@email.com"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Phone Number *
-                      </label>
-                      <Input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98765 43210"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Loan Type *
-                      </label>
-                      <Input
-                        type="text"
-                        value={formData.loanType}
-                        onChange={(e) => setFormData({ ...formData, loanType: e.target.value })}
-                        placeholder="e.g., Personal Loan"
+                        maxLength={255}
                         required
                       />
                     </div>
@@ -199,13 +200,15 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Loan Amount (optional)
+                      Phone Number *
                     </label>
                     <Input
-                      type="text"
-                      value={formData.amount}
-                      onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                      placeholder="e.g., ₹5,00,000"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 98765 43210"
+                      maxLength={20}
+                      required
                     />
                   </div>
 
@@ -217,12 +220,13 @@ const Contact = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us more about your requirements..."
-                      rows={4}
+                      rows={5}
+                      maxLength={1000}
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    Submit Enquiry
+                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isLoading}>
+                    {isLoading ? "Sending..." : "Submit Enquiry"}
                   </Button>
                   
                   <p className="text-xs text-muted-foreground text-center">
