@@ -9,16 +9,19 @@ const Hero = () => {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 right-10 w-96 h-96 bg-secondary/30 rounded-full blur-3xl" />
@@ -38,24 +41,25 @@ const Hero = () => {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-xl">
-                I help you compare banks, secure the right loan, and get approvals faster.
+                I help you compare banks, secure the right loan, and get
+                approvals faster.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 variant="hero"
                 size="xl"
                 onClick={() => scrollToSection("contact")}
               >
                 Book Free Consultation
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 size="xl"
                 onClick={() => scrollToSection("contact")}
               >
-                Ask for Quote
+                Check free loan eligibility
               </Button>
             </div>
 
@@ -76,7 +80,10 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Avatar */}
-          <div className="relative flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: "200ms" }}>
+          <div
+            className="relative flex justify-center lg:justify-end animate-fade-in"
+            style={{ animationDelay: "200ms" }}
+          >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-2xl opacity-30 animate-pulse" />
               <div className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-primary to-accent p-2">
@@ -89,27 +96,30 @@ const Hero = () => {
         </div>
 
         {/* Stats Band */}
-        <div className="mt-20 animate-fade-in" style={{ animationDelay: "400ms" }}>
+        <div
+          className="mt-20 animate-fade-in"
+          style={{ animationDelay: "400ms" }}
+        >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <StatCard 
+            <StatCard
               icon={<Award className="h-8 w-8" />}
               value={20}
               suffix="+"
               label="Years experience"
             />
-            <StatCard 
+            <StatCard
               icon={<Building2 className="h-8 w-8" />}
               value={9}
               suffix="+"
               label="Banks partnered"
             />
-            <StatCard 
+            <StatCard
               icon={<TrendingUp className="h-8 w-8" />}
               value={236}
               suffix="+"
               label="Loans approved"
             />
-            <StatCard 
+            <StatCard
               icon={<CheckCircle className="h-8 w-8" />}
               value={99}
               suffix="%"
@@ -174,7 +184,7 @@ const StatCard = ({ icon, value, suffix, label }: StatCardProps) => {
   }, [isVisible, value]);
 
   return (
-    <div 
+    <div
       ref={ref}
       className="bg-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/50"
     >
@@ -182,7 +192,8 @@ const StatCard = ({ icon, value, suffix, label }: StatCardProps) => {
         <div className="text-primary">{icon}</div>
         <div>
           <div className="text-3xl font-bold text-primary font-poppins">
-            {count}{suffix}
+            {count}
+            {suffix}
           </div>
           <div className="text-sm text-muted-foreground">{label}</div>
         </div>
