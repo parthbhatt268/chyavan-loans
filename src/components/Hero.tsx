@@ -87,8 +87,17 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-2xl opacity-30 animate-pulse" />
               <div className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-primary to-accent p-2">
-                <div className="w-full h-full rounded-full bg-secondary flex items-center justify-center text-8xl lg:text-9xl">
-                  👤
+                <div className="w-full h-full rounded-full bg-secondary overflow-hidden border-4 border-background">
+                  <img 
+                    src="/profile-photo.png" 
+                    alt="Chavan" 
+                    className="w-full h-full object-cover object-center"
+                    style={{
+                      minWidth: '100%',
+                      minHeight: '100%',
+                      borderRadius: '9999px'
+                    }}
+                  />
                 </div>
               </div>
             </div>
