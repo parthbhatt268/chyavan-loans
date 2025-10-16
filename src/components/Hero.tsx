@@ -117,21 +117,21 @@ const Hero = () => {
             />
             <StatCard
               icon={<Building2 className="h-8 w-8" />}
-              value={9}
+              value={19}
               suffix="+"
               label="Banks partnered"
             />
             <StatCard
               icon={<TrendingUp className="h-8 w-8" />}
-              value={236}
+              value={1236}
               suffix="+"
               label="Loans approved"
             />
             <StatCard
               icon={<CheckCircle className="h-8 w-8" />}
-              value={99}
-              suffix="%"
-              label="Client satisfaction"
+              value={9}
+              suffix="CR+"
+              label="Loam Amount Disbisrust"
             />
           </div>
         </div>

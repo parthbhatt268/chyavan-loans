@@ -17,8 +17,7 @@ const ReferralBonus = () => {
     name: "",
     yourName: "",
     phone: "",
-    loanType: "",
-    bank: ""
+    loanType: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -46,7 +45,6 @@ const ReferralBonus = () => {
         referral_name: formData.name,
         phone: formData.phone,
         loan_type: formData.loanType,
-        bank: formData.bank || 'Not specified',
         reply_to: 'no-reply@chyavanloans.com'
       };
 
@@ -68,7 +66,6 @@ const ReferralBonus = () => {
         yourName: "",
         phone: "",
         loanType: "",
-        bank: ""
       });
     } catch (error) {
       console.error('Error sending email:', error);
@@ -194,8 +191,6 @@ const ReferralBonus = () => {
                       required
                     />
                   </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Loan Type *
@@ -206,17 +201,6 @@ const ReferralBonus = () => {
                       onChange={(e) => setFormData({ ...formData, loanType: e.target.value })}
                       placeholder="e.g., Home Loan"
                       required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Bank (if any)
-                    </label>
-                    <Input
-                      type="text"
-                      value={formData.bank}
-                      onChange={(e) => setFormData({ ...formData, bank: e.target.value })}
-                      placeholder="Enter bank name"
                     />
                   </div>
                 </div>
