@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Clock, MapPin, Shield, Award } from "lucide-react";
+import { Mail, Phone, Clock, MapPin, Shield, Award, BarChart2, HandCoins } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
@@ -146,16 +146,16 @@ const Contact = () => {
                   <h4 className="text-sm font-semibold text-foreground mb-4">Why Choose Us</h4>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <Shield className="h-4 w-4 text-primary" />
-                      <span className="text-sm text-muted-foreground">100% Data Privacy</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Award className="h-4 w-4 text-primary" />
+                      <Award className="h-4 w-4 text-primary flex-shrink-0" />
                       <span className="text-sm text-muted-foreground">20+ Years Experience</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Phone className="h-4 w-4 text-primary" />
-                      <span className="text-sm text-muted-foreground">24/7 Support Available</span>
+                      <BarChart2 className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">Best Rate of Interest from Top Banks</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <HandCoins className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">Free of Charge Consultation</span>
                     </div>
                   </div>
                 </div>

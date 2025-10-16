@@ -33,25 +33,20 @@ const Header = () => {
   const whatsappMessage = encodeURIComponent("Hi! I'd like to know more about your loan services.");
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-md shadow-md" 
-          : "bg-background"
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-primary/90 backdrop-blur-md shadow-sm" : "bg-primary"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <button 
-            onClick={() => scrollToSection("home")}
-            className="text-2xl font-bold text-primary font-poppins hover:text-accent transition-colors"
-          >
-            Chyavan
+          <a href="#" className="flex items-center gap-2">
+            <span className="text-2xl font-bold text-background">Chyavan</span>
             <span className="text-base font-normal text-muted-foreground ml-2">
               Loan Consultant
             </span>
-          </button>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -59,41 +54,16 @@ const Header = () => {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors capitalize"
+                className="text-sm font-medium text-background hover:text-background transition-colors capitalize"
               >
                 {section === "referral" ? "Referral Bonus" : section}
               </button>
             ))}
           </div>
 
-          {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button 
-              variant="ghost"
-              size="sm"
-              onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank")}
-            >
-              Send Hi
-            </Button>
-            <Button 
-              variant="outline"
-              size="sm"
-              onClick={() => scrollToSection("contact")}
-            >
-              Ask for Quote
-            </Button>
-            <Button 
-              variant="hero"
-              size="sm"
-              onClick={() => scrollToSection("contact")}
-            >
-              Book Free Consultation
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-background"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -109,7 +79,7 @@ const Header = () => {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="text-left text-foreground hover:text-primary transition-colors capitalize py-2"
+                  className="text-background/90 hover:text-background transition-colors capitalize"
                 >
                   {section === "referral" ? "Referral Bonus" : section}
                 </button>

@@ -36,13 +36,12 @@ const Hero = () => {
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground font-poppins leading-tight">
                 Hi! I'm <span className="text-primary">Chyavan</span>.
                 <br />
-                <span className="text-3xl lg:text-4xl text-muted-foreground">
+                <span className="text-2xl lg:text-3xl text-muted-foreground">
                   20+ years of expertise in all kinds of loans.
                 </span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-xl">
-                I help you compare banks, secure the right loan, and get
-                approvals faster.
+              <p className="text-lg text-muted-foreground max-w-xl">
+                I help you compare banks, secure the right loan, and get approvals faster.
               </p>
             </div>
 
