@@ -66,13 +66,13 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-background/80">
               <li>
-                <a href="mailto:Chyavan@loanservices.com" className="hover:text-background">
-                  Chyavan@loanservices.com
+                <a href="mailto:ask.chyavan@gmail.com" className="hover:text-background">
+                  ask.chyavan@gmail.com
                 </a>
               </li>
               <li>
                 <a href="tel:+919876543210" className="hover:text-background">
-                  +91 98765 43210
+                  +91 9930027408
                 </a>
               </li>
               <li>Mumbai, Maharashtra</li>
