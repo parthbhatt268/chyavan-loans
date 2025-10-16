@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Gift, IndianRupee } from "lucide-react";
+import { Gift, IndianRupee, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const referralSlabs = [
   { min: "1,00,000", max: "2,50,000", bonus: "500" },
@@ -14,17 +15,19 @@ const referralSlabs = [
 const ReferralBonus = () => {
   const [formData, setFormData] = useState({
     name: "",
+    yourName: "",
     phone: "",
     loanType: "",
     bank: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.name || !formData.phone || !formData.loanType) {
+    if (!formData.name || !formData.yourName || !formData.phone || !formData.loanType) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
@@ -33,19 +36,50 @@ const ReferralBonus = () => {
       return;
     }
 
-    // Simulate submission
-    toast({
-      title: "Referral Submitted!",
-      description: "Thank you! We'll process your referral soon.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      name: "",
-      phone: "",
-      loanType: "",
-      bank: ""
-    });
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.yourName,
+        to_name: 'Chyavan Loans',
+        referral_name: formData.name,
+        phone: formData.phone,
+        loan_type: formData.loanType,
+        bank: formData.bank || 'Not specified',
+        reply_to: 'no-reply@chyavanloans.com'
+      };
+
+      await emailjs.send(
+        'service_tyoph0j', // EmailJS service ID
+        'template_i7q8k2k', // EmailJS template ID
+        templateParams,
+        '9qmVhoJWQH-lebpC7' // EmailJS public key
+      );
+
+      toast({
+        title: "Referral Submitted!",
+        description: "Thank you! We'll process your referral soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        yourName: "",
+        phone: "",
+        loanType: "",
+        bank: ""
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit referral. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -124,25 +158,39 @@ const ReferralBonus = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Referral Name *
+                      Your Name *
                     </label>
                     <Input
                       type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter name"
+                      value={formData.yourName}
+                      onChange={(e) => setFormData({ ...formData, yourName: e.target.value })}
+                      placeholder="Your full name"
                       required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number *
+                      Referral's Name *
+                    </label>
+                    <Input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Referral's full name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Referral's Phone Number *
                     </label>
                     <Input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="Enter phone"
+                      placeholder="Enter referral's phone"
                       required
                     />
                   </div>
@@ -172,8 +220,21 @@ const ReferralBonus = () => {
                     />
                   </div>
                 </div>
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Submit Referral
+                <Button 
+                  type="submit" 
+                  variant="hero" 
+                  size="lg" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Submit Referral'
+                  )}
                 </Button>
               </form>
             </div>
