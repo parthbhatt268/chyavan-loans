@@ -42,13 +42,6 @@ const BanksWeWorkWith = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-4">And many more banking partners across India</p>
-          <button className="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors">
-            Check Your Eligibility
-          </button>
-        </div>
       </div>
     </section>
   );
