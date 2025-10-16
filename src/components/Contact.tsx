@@ -98,8 +98,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <a href="mailto:chavan@loanservices.com" className="text-foreground font-medium hover:text-primary">
-                        chavan@loanservices.com
+                      <a href="mailto:Chyavan@loanservices.com" className="text-foreground font-medium hover:text-primary">
+                        Chyavan@loanservices.com
                       </a>
                     </div>
                   </div>
@@ -123,7 +123,7 @@ const Contact = () => {
                     <div>
                       <p className="text-sm text-muted-foreground">Working Hours</p>
                       <p className="text-foreground font-medium">
-                        Mon - Sat: 9:00 AM - 7:00 PM
+                        9:00 AM - 8:00 PM
                       </p>
                     </div>
                   </div>
@@ -206,7 +206,7 @@ const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 99999 99999"
                       maxLength={20}
                       required
                     />

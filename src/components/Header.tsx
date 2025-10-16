@@ -47,7 +47,7 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
             className="text-2xl font-bold text-primary font-poppins hover:text-accent transition-colors"
           >
-            Chavan
+            Chyavan
             <span className="text-base font-normal text-muted-foreground ml-2">
               Loan Consultant
             </span>

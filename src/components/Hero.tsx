@@ -34,7 +34,7 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground font-poppins leading-tight">
-                Hi! I'm <span className="text-primary">Chavan</span>.
+                Hi! I'm <span className="text-primary">Chyavan</span>.
                 <br />
                 <span className="text-3xl lg:text-4xl text-muted-foreground">
                   20+ years of expertise in all kinds of loans.
@@ -90,7 +90,7 @@ const Hero = () => {
                 <div className="w-full h-full rounded-full bg-secondary overflow-hidden border-4 border-background">
                   <img 
                     src="/profile-photo.png" 
-                    alt="Chavan" 
+                    alt="Chyavan" 
                     className="w-full h-full object-cover object-center"
                     style={{
                       minWidth: '100%',

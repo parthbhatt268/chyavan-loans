@@ -132,61 +132,6 @@ const Questions = () => {
               </div>
             ))}
           </div>
-
-          {/* Ask a Question Form */}
-          <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
-              <h3 className="text-2xl font-bold text-foreground font-poppins mb-6">
-                Ask a Question
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Your Name *
-                    </label>
-                    <Input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email or Phone *
-                    </label>
-                    <Input
-                      type="text"
-                      value={formData.contact}
-                      onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                      placeholder="Enter email or phone"
-                      required
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Your Question *
-                  </label>
-                  <Textarea
-                    value={formData.question}
-                    onChange={(e) => setFormData({ ...formData, question: e.target.value })}
-                    placeholder="Type your question here..."
-                    rows={4}
-                    required
-                  />
-                </div>
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Submit Question
-                </Button>
-                <p className="text-xs text-muted-foreground text-center">
-                  We typically respond within 24 hours
-                </p>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
     </section>
