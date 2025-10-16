@@ -110,7 +110,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone / WhatsApp</p>
-                      <a href="tel:+919876543210" className="text-foreground font-medium hover:text-primary">
+                      <a href="tel:+919930027408" className="text-foreground font-medium hover:text-primary">
                         +91 9930027408
                       </a>
                     </div>

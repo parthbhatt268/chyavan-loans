@@ -29,8 +29,6 @@ const Header = () => {
     }
   };
 
-  const whatsappNumber = "919876543210"; // Replace with actual number
-  const whatsappMessage = encodeURIComponent("Hi! I'd like to know more about your loan services.");
 
   return (
     <header
@@ -84,20 +82,6 @@ const Header = () => {
                   {section === "referral" ? "Referral Bonus" : section}
                 </button>
               ))}
-              <div className="flex flex-col gap-2 pt-4 border-t">
-                <Button 
-                  variant="outline"
-                  onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank")}
-                >
-                  Send Hi
-                </Button>
-                <Button 
-                  variant="hero"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  Book Free Consultation
-                </Button>
-              </div>
             </div>
           </div>
         )}

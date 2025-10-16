@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Award, Building2, CheckCircle, TrendingUp } from "lucide-react";
 
 const Hero = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '919999999999'; // Replace with your WhatsApp number
+    const message = encodeURIComponent("Hi Chyavan, I'm interested in a free loan consultation. Can you help me with more information?");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -49,7 +55,7 @@ const Hero = () => {
               <Button
                 variant="hero"
                 size="xl"
-                onClick={() => scrollToSection("contact")}
+                onClick={handleWhatsAppClick}
               >
                 Book Free Consultation
               </Button>
