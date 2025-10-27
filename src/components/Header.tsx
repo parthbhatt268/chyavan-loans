@@ -31,17 +31,13 @@ const Header = () => {
 
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-primary/90 backdrop-blur-md shadow-sm" : "bg-primary"
-      }`}
-    >
+    <header className="fixed w-full z-50 bg-foreground">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <span className="text-2xl font-bold text-background">Chyavan</span>
-            <span className="text-base font-normal text-muted-foreground ml-2">
+            <span className="text-base font-normal text-background/80 ml-2">
               Loan Consultant
             </span>
           </a>
