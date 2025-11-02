@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Which banks do you work with?",
-    answer: "We partner with 14+ leading banks and finance institutions including HDFC, ICICI, SBI, Axis, and more. This allows us to compare and get you the best rates."
+    answer: "We partner with 14+ leading banks and finance institutions including HDFC, ICICI, SBI, Axis, Bajaj Finance, Aditya Birla Finance, SMFG, Incred Finance etc . This allows us to compare and get you the best rates."
   }
 ];
 

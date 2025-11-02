@@ -22,15 +22,15 @@ import poonawallaLogo from "../asset/poonaw.jpg";
 import shriramLogo from "../asset/shriram.jpg";
 
 const banks = [
-  { name: "HDFC", logo: hdfcLogo },
-  { name: "Axis", logo: axisLogo },
-  { name: "ICICI", logo: iciciLogo },
-  { name: "SBI", logo: sbiLogo },
-  { name: "PNB", logo: pnbLogo },
-  { name: "BoB", logo: bobLogo },
-  { name: "Kotak", logo: kotakLogo },
-  { name: "IndusInd", logo: indusLogo },
-  { name: "IDFC", logo: idfcLogo },
+  { name: "HDFC Bank", logo: hdfcLogo },
+  { name: "Axis Bank", logo: axisLogo },
+  { name: "ICICI Bank", logo: iciciLogo },
+  { name: "SBI Bank", logo: sbiLogo },
+  { name: "PNB Bank", logo: pnbLogo },
+  { name: "BoB Bank", logo: bobLogo },
+  { name: "Kotak Mahindra Bank", logo: kotakLogo },
+  { name: "IndusInd Bank", logo: indusLogo },
+  { name: "IDFC First Bank", logo: idfcLogo },
   { name: "Yes Bank", logo: yesLogo },
   { name: "Bajaj Finance ", logo: bajajLogo },
   { name: "Incred Finance", logo: incredLogo },
@@ -39,7 +39,7 @@ const banks = [
   { name: "Tata Capital", logo: tataLogo },
   { name: "Piramal Finance", logo: piramalLogo },
   { name: "Poonawalla Finance", logo: poonawallaLogo },
-  { name: "ShreeRam Finance", logo: shriramLogo },
+  { name: "Shriram Finance", logo: shriramLogo },
 ];
 
 // Duplicate the banks array to create a seamless loop
