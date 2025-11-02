@@ -12,7 +12,7 @@ const expertiseItems: ExpertiseItem[] = [
   {
     title: "Personal Loans",
     icon: User,
-    description: "Unsecured funds for urgent needs like medical, education, or travel. Quick approvals with fixed EMIs and minimal paperwork."
+    description: "Unsecured funds for urgent needs like medical, education, or travel. Quick approvals & minimal paperwork."
   },
   {
     title: "Home Loans",

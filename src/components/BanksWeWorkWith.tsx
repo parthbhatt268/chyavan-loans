@@ -1,17 +1,25 @@
-import { Banknote, Building2, Landmark, PiggyBank, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from 'react';
 
 const banks = [
-  { name: "HDFC", icon: <Building2 className="h-6 w-6 text-blue-600" /> },
-  { name: "Axis", icon: <PiggyBank className="h-6 w-6 text-blue-800" /> },
-  { name: "ICICI", icon: <Banknote className="h-6 w-6 text-blue-400" /> },
-  { name: "SBI", icon: <Landmark className="h-6 w-6 text-blue-700" /> },
-  { name: "PNB", icon: <Building2 className="h-6 w-6 text-red-600" /> },
-  { name: "BoB", icon: <PiggyBank className="h-6 w-6 text-yellow-600" /> },
-  { name: "Kotak", icon: <Banknote className="h-6 w-6 text-purple-600" /> },
-  { name: "IndusInd", icon: <Landmark className="h-6 w-6 text-blue-500" /> },
-  { name: "IDFC", icon: <Building2 className="h-6 w-6 text-orange-600" /> },
-  { name: "Yes Bank", icon: <PiggyBank className="h-6 w-6 text-green-600" /> },
+  { name: "HDFC", logo: "/src/asset/hdfc.png" },
+  { name: "Axis", logo: "/src/asset/axis.jpg" },
+  { name: "ICICI", logo: "/src/asset/icic.png" },
+  { name: "SBI", logo: "/src/asset/sbi.png" },
+  { name: "PNB", logo: "/src/asset/pnb.png" },
+  { name: "BoB", logo: "/src/asset/bob.png" },
+  { name: "Kotak", logo: "/src/asset/kotak-mahindra-bank.png" },
+  { name: "IndusInd", logo: "/src/asset/indusl.jpg" },
+  { name: "IDFC", logo: "/src/asset/idfc.png" },
+  { name: "Yes Bank", logo: "/src/asset/yesbank.png" },
+  { name: "Bajaj", logo: "/src/asset/bajaj-finser.png" },
+  { name: "Incred Finance", logo: "/src/asset/incred.jpg" },
+  { name: "Aditya Birla Finance", logo: "/src/asset/adityab.jpg" },
+  { name: "SMFG/Fulleton", logo: "/src/asset/smfg.png" },
+  { name: "Tata Capital", logo: "/src/asset/tatac.png" },
+  { name: "Piramal Finance", logo: "/src/asset/piramalf.png" },
+  { name: "Poonawalla Finance", logo: "/src/asset/poonaw.jpg" },
+  { name: "ShreeRam Finance", logo: "/src/asset/shriram.jpg" },
 ];
 
 // Duplicate the banks array to create a seamless loop
@@ -57,7 +65,7 @@ const BanksWeWorkWith = () => {
 
   const handleTouchMove = (e: React.TouchEvent | React.MouseEvent) => {
     if (!isDragging) return;
-    
+
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
     const moveX = clientX - startX;
     setPosition(prev => prev + moveX);
@@ -82,8 +90,8 @@ const BanksWeWorkWith = () => {
   const handleMouseLeave = () => !isDragging && setIsPaused(false);
 
   return (
-    <section 
-      className="py-12 bg-gray-50 overflow-hidden relative" 
+    <section
+      className="py-12 bg-gray-50 overflow-hidden relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -97,15 +105,15 @@ const BanksWeWorkWith = () => {
 
         <div className="relative w-full overflow-hidden py-4">
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={() => scrollBy('left')}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-110 focus:outline-none"
             aria-label="Previous banks"
           >
             <ChevronLeft className="h-6 w-6 text-gray-700" />
           </button>
-          
-          <button 
+
+          <button
             onClick={() => scrollBy('right')}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-110 focus:outline-none"
             aria-label="Next banks"
@@ -114,7 +122,7 @@ const BanksWeWorkWith = () => {
           </button>
 
           <div className="relative w-full overflow-visible">
-            <div 
+            <div
               ref={sliderRef}
               className="flex items-center gap-8 w-max transition-transform duration-300 ease-out"
               style={{ transform: `translateX(${position}px)` }}
@@ -131,8 +139,12 @@ const BanksWeWorkWith = () => {
                   key={index}
                   className="flex-shrink-0 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center w-32 h-24 cursor-grab active:cursor-grabbing select-none"
                 >
-                  <div className="p-1.5 bg-gray-50 rounded-full mb-2">
-                    {bank.icon}
+                  <div className="p-1.5 bg-gray-50 rounded-full mb-2 flex items-center justify-center h-10 w-10">
+                    <img
+                      src={bank.logo}
+                      alt={`${bank.name} logo`}
+                      className="h-6 w-6 object-contain"
+                    />
                   </div>
                   <h3 className="text-sm font-medium text-gray-900">{bank.name}</h3>
                 </div>

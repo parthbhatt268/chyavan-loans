@@ -4,7 +4,7 @@ import { Award, Building2, CheckCircle, TrendingUp } from "lucide-react";
 
 const Hero = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = '919999999999'; // Replace with your WhatsApp number
+    const phoneNumber = '919930027408'; // Replace with your WhatsApp number
     const message = encodeURIComponent("Hi Chyavan, I'm interested in a free loan consultation. Can you help me with more information?");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
