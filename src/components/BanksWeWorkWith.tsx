@@ -1,25 +1,45 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from 'react';
 
+// ✅ Import images so Vite rewrites them to hashed URLs that work on Netlify
+import hdfcLogo from "../asset/hdfc.png";
+import axisLogo from "../asset/axis.jpg";
+import iciciLogo from "../asset/icic.png";
+import sbiLogo from "../asset/sbi.png";
+import pnbLogo from "../asset/pnb.png";
+import bobLogo from "../asset/bob.png";
+import kotakLogo from "../asset/kotak-mahindra-bank.png";
+import indusLogo from "../asset/indusl.jpg";
+import idfcLogo from "../asset/idfc.png";
+import yesLogo from "../asset/yesbank.png";
+import bajajLogo from "../asset/bajaj-finser.png";
+import incredLogo from "../asset/incred.jpg";
+import adityaLogo from "../asset/adityab.jpg";
+import smfgLogo from "../asset/smfg.png";
+import tataLogo from "../asset/tatac.png";
+import piramalLogo from "../asset/piramalf.png";
+import poonawallaLogo from "../asset/poonaw.jpg";
+import shriramLogo from "../asset/shriram.jpg";
+
 const banks = [
-  { name: "HDFC", logo: "/src/asset/hdfc.png" },
-  { name: "Axis", logo: "/src/asset/axis.jpg" },
-  { name: "ICICI", logo: "/src/asset/icic.png" },
-  { name: "SBI", logo: "/src/asset/sbi.png" },
-  { name: "PNB", logo: "/src/asset/pnb.png" },
-  { name: "BoB", logo: "/src/asset/bob.png" },
-  { name: "Kotak", logo: "/src/asset/kotak-mahindra-bank.png" },
-  { name: "IndusInd", logo: "/src/asset/indusl.jpg" },
-  { name: "IDFC", logo: "/src/asset/idfc.png" },
-  { name: "Yes Bank", logo: "/src/asset/yesbank.png" },
-  { name: "Bajaj", logo: "/src/asset/bajaj-finser.png" },
-  { name: "Incred Finance", logo: "/src/asset/incred.jpg" },
-  { name: "Aditya Birla Finance", logo: "/src/asset/adityab.jpg" },
-  { name: "SMFG/Fulleton", logo: "/src/asset/smfg.png" },
-  { name: "Tata Capital", logo: "/src/asset/tatac.png" },
-  { name: "Piramal Finance", logo: "/src/asset/piramalf.png" },
-  { name: "Poonawalla Finance", logo: "/src/asset/poonaw.jpg" },
-  { name: "ShreeRam Finance", logo: "/src/asset/shriram.jpg" },
+  { name: "HDFC", logo: hdfcLogo },
+  { name: "Axis", logo: axisLogo },
+  { name: "ICICI", logo: iciciLogo },
+  { name: "SBI", logo: sbiLogo },
+  { name: "PNB", logo: pnbLogo },
+  { name: "BoB", logo: bobLogo },
+  { name: "Kotak", logo: kotakLogo },
+  { name: "IndusInd", logo: indusLogo },
+  { name: "IDFC", logo: idfcLogo },
+  { name: "Yes Bank", logo: yesLogo },
+  { name: "Bajaj Finance ", logo: bajajLogo },
+  { name: "Incred Finance", logo: incredLogo },
+  { name: "Aditya Birla Finance", logo: adityaLogo },
+  { name: "SMFG", logo: smfgLogo },
+  { name: "Tata Capital", logo: tataLogo },
+  { name: "Piramal Finance", logo: piramalLogo },
+  { name: "Poonawalla Finance", logo: poonawallaLogo },
+  { name: "ShreeRam Finance", logo: shriramLogo },
 ];
 
 // Duplicate the banks array to create a seamless loop
